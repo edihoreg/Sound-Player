@@ -1,73 +1,94 @@
-# React + TypeScript + Vite
+# 🎵 Shel Sound Network
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Shel Sound Network** is a modern, decentralized audio streaming and management platform built on the **Aptos Blockchain** and the **Shelby Protocol**. It empowers users to store, manage, and stream their music collection in a truly decentralized manner, leveraging cutting-edge Web3 technologies.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- **Decentralized Storage**: Music files are stored securely on the Shelby Network, ensuring data ownership and availability.
+- **Aptos Wallet Integration**: Seamlessly connect using Petra, Aptos Connect, or other supported wallets to manage your library.
+- **Cloud Explorer**: Browse and manage your audio blobs stored across the Shelby network with a native file explorer interface.
+- **Smart Metadata Parsing**: Automatic ID3 tag extraction for titles and artists upon upload.
+- **Modern Audio Engine**: Responsive playback with features like shuffle, loop, volume boost, and high-fidelity rendering.
+- **Premium UI/UX**: A dark-themed, glassmorphism-inspired interface built for an immersive listening experience.
+- **Cross-Platform Readiness**: Designed as a Single Page Application (SPA), fully optimized for Vercel and modern browser environments.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: [React 19](https://react.dev/), [Vite](https://vitejs.dev/), [TypeScript](https://www.typescriptlang.org/)
+- **Blockchain Interface**: [@aptos-labs/ts-sdk](https://github.com/aptos-labs/aptos-ts-sdk), [@aptos-labs/wallet-adapter-react](https://github.com/aptos-labs/aptos-wallet-adapter)
+- **Decentralized Storage**: [@shelby-protocol/sdk](https://www.npmjs.com/package/@shelby-protocol/sdk), [@shelby-protocol/react](https://www.npmjs.com/package/@shelby-protocol/react)
+- **State Management**: [TanStack Query (React Query)](https://tanstack.com/query/latest)
+- **Styling**: Vanilla CSS (Modern design patterns, Flexbox, CSS Grid)
+- **Deployment**: [Vercel](https://vercel.com/) (Optimized with `vercel.json` and Node.js polyfills)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Follow these instructions to get a copy of the project up and running on your local machine.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ferize585/Shel-Sound-Network.git
+   cd Shel-Sound-Network
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install --legacy-peer-deps
+   ```
+   *Note: `--legacy-peer-deps` is recommended to ensure smooth resolution of Web3 peer dependency trees.*
+
+### Environment Setup
+
+Create a `.env` file in the root directory and add your Shelby API keys:
+```env
+VITE_SHELBY_API_KEY_SHELBYNET=your_api_key_here
+VITE_SHELBY_API_KEY_TESTNET=your_api_key_here
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Run the development server locally:
+```bash
+npm run dev
 ```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build for Production
+
+Generate a production-ready build:
+```bash
+npm run build
+```
+The output will be located in the `dist/` directory, ready to be deployed to Vercel or any static hosting service.
+
+---
+
+## 🔧 Configuration Note (Vite 8 & Polyfills)
+
+This project is optimized for **Vite 8** and **Rolldown**. To ensure compatibility with Web3 libraries that require Node.js core modules (like `Buffer` or `process`) in the browser, it uses:
+- Manual `resolve.alias` in `vite.config.ts`.
+- Custom global `define` entries.
+- A dedicated `src/polyfills.ts` for environment initialization.
+
+---
+
+## 📄 License
+
+This project is for demonstration and portfolio purposes. All rights reserved.
+
+---
+
+Developed with 🎵 by the Shel Sound Network Team.
