@@ -9,11 +9,13 @@ export default defineConfig({
     react(),
     // Required for Web3/Aptos libs that need Buffer, global, process in browser
     nodePolyfills({
+      // Only handle module aliasing (e.g. import 'buffer') 
+      // Do not inject globals here as they conflict with src/polyfills.ts and cause Vite 8/Rolldown errors
       include: ['buffer', 'process', 'util'],
       globals: {
-        Buffer: true,
-        global: true,
-        process: true,
+        Buffer: false, 
+        global: false,
+        process: false,
       },
     }),
   ],
