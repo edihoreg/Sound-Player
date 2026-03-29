@@ -30,8 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       plugins={wallets}
       autoConnect={true}
       dappConfig={{ 
-        network: Network.TESTNET,
-        aptosConnect: { dappId: "shelby-audio-player" }
+        network: Network.TESTNET
       }}
     >
       <QueryClientProvider client={queryClient}>
