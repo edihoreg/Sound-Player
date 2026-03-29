@@ -68,7 +68,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         console.log("Google keyless connect triggered");
       }
       await new Promise(r => setTimeout(r, 100));
-      await connect("Continue with Google" as any);
+      await connect("AptosConnect" as any);
 
       setTimeout(() => {
         if (!connectedRef.current) {

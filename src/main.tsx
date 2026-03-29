@@ -26,7 +26,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         plugins={[]}
         autoConnect={true}
         dappConfig={{ 
-          network: Network.TESTNET
+          network: Network.TESTNET,
+          aptosConnect: { 
+            dappName: "Shelby Sound Network",
+            dappId: "shelby-audio-player-v1-prod" 
+          }
         }}
       >
         <ShelbyProvider apiKey={apiKey}>
